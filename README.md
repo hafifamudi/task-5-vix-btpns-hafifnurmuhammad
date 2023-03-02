@@ -3,6 +3,10 @@
 <hr />
 <br />
 
+```
+Project ini masih dalam tahap Development sampai dengan tanggal 5 Maret 2023
+```
+
 ## About the API
 <p style="margin-left: 10px">
     Ini adalah <i>Restful API</i> yang di bentuk sebagai tugas akhir pada <b>Virtual Internship - Bank BTPN Syariah</b>. Disini  pengatahuan kami di uji terkait dengan Bahasa Pemrograman <i>Golang</i>, dengan membuat sebuah  <i>Restful API</i> dengan requirement yang telah di tentukan sebelumnya.  <i>Restful API</i> ini terdiri dari dua Enpoint, yakni User Endpoint (Login & Register) dan Photo Endpoint. Gambaran lebih detail terkait dengan <i>System Design</i> dan <i>API Specification</i> nya dapat di lihat pada bagian selanjutnya.
