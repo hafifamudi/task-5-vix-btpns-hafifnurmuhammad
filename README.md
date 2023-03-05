@@ -23,6 +23,15 @@ Project ini masih dalam tahap Development sampai dengan tanggal 5 Maret 2023
 
 `Contoh perintah : make <target> | make postgresup`
 
+<p style="margin-left: 10px">
+    Berikut adalah step-by-step untuk men-setup docker image <i>Golang Restful API</i> dan <i>PostgreSQL</i> secara cepat. Agar dapat secara langsung me-running <i>Restful API</i> nya.
+</p>
+
+- `make build` | untuk mem-build image dari <i>Golang Restful API </i> nya
+- `make run` | me-running image Golang dan Postgres nya secaras otomatis.
+
+That's it, Restful API nya sudah bisa di testing sekarang, Enjoy :)
+
 <br />
 
 ## System Design
