@@ -26,7 +26,7 @@ func MigrateDB() {
 		"postgres://%s:%s@%s:%d/%s?sslmode=disable",
 		helpers.GetAsString("DB_USER", "postgres"),
 		helpers.GetAsString("DB_PASSWORD", "mysecretpassword"),
-		helpers.GetAsString("DB_HOST", "localhost"),
+		helpers.GetAsString("DB_HOST", "postgres"),
 		helpers.GetAsInt("DB_PORT", 5432),
 		helpers.GetAsString("DB_NAME", "postgres"),
 	)
