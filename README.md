@@ -21,6 +21,8 @@ Project ini masih dalam tahap Development sampai dengan tanggal 5 Maret 2023
 - postgresdown (untuk menghentikan proses docker image postgres yang sedang berjalan pada suatu container dan remove cache container nya)
 - psql (untuk memulai interactive shell dari container postgres yang sedang berjalan. Hal ini bermanfaat jika ingin melakukan debugging ke dalam database -> table postgres nya)
 
+`Contoh perintah : make <target> | make postgresup`
+
 <br />
 
 ## System Design
