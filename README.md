@@ -43,7 +43,7 @@ Request :
 
 Request :
 - Method : POST
-- Endpoint : `/api/v1/products`
+- Endpoint : `/api/v1/register`
 - Header :
     - Content-Type : application/json
     - Accept : application/json
@@ -54,9 +54,7 @@ Request :
             "username" : "required",
             "email" : "unique, required",
             "password" : "required, min-length: 6",
-            "photo" : "Many-to-One, CASCADE",
-            "created_at" : "timestamp",
-            "updated_at" : "timestamp"
+            "photo" : "Many-to-One, CASCADE | optional",
         }
     ```
 
@@ -69,7 +67,8 @@ Response :
         "data" : {
             "id" : "string",
             "email" : "string",
-            "username" : "string"
+            "username" : "string",
+            "created_at" : "timestamp"
         }
     }
 ```
@@ -118,10 +117,9 @@ Response :
             "id" : "uint",
             "title" : "string",
             "photo_url" : "string",
+            "caption" : "string",
             "user_id" : "uint",
-            "user" : "Many-to-One",
-            "created_at" : "timestamp",
-            "updated_at" : "timestamp"
+            "user" : "Many-to-One"
         }
     }
 ```
