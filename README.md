@@ -12,6 +12,15 @@ Project ini masih dalam tahap Development sampai dengan tanggal 5 Maret 2023
     Ini adalah <i>Restful API</i> yang di bentuk sebagai tugas akhir pada <b>Virtual Internship - Bank BTPN Syariah</b>. Disini  pengatahuan kami di uji terkait dengan Bahasa Pemrograman <i>Golang</i>, dengan membuat sebuah  <i>Restful API</i> dengan requirement yang telah di tentukan sebelumnya.  <i>Restful API</i> ini terdiri dari dua Enpoint, yakni User Endpoint (Login & Register) dan Photo Endpoint. Gambaran lebih detail terkait dengan <i>System Design</i> dan <i>API Specification</i> nya dapat di lihat pada bagian selanjutnya.
 </p>
 
+## Set up
+<p style="margin-left: 10px">
+    Telah di sediakan file  <b>Makefile</b> yang berfungsi untuk menjalankan beberapa init script terkait dengan <i>Golang Restful API</i> nya
+</p>
+
+- postgresup (untuk melakukan pull postgres docker image nya dan set up volume untuk persistance storage)
+- postgresdown (untuk menghentikan proses docker image postgres yang sedang berjalan pada suatu container dan remove cache container nya)
+- psql (untuk memulai interactive shell dari container postgres yang sedang berjalan. Hal ini bermanfaat jika ingin melakukan debugging ke dalam database -> table postgres nya)
+
 <br />
 
 ## System Design
