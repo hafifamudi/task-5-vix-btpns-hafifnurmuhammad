@@ -6,38 +6,47 @@ import (
 
 	"github.com/hafifamudi/task-5-vix-btpns-hafifnurmuhammad/helpers"
 	"github.com/hafifamudi/task-5-vix-btpns-hafifnurmuhammad/models"
-	"github.com/joho/godotenv"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
 
 var (
-	db *gorm.DB
+	db  *gorm.DB
+	err error
 )
 
 func MigrateDB() {
-	//load the .env file
-	err := godotenv.Load(".env")
-	if err != nil {
-		log.Fatalf("Error loading .env file")
+	var path string
+	stage := helpers.GetAsString("STAGE", "development")
+
+	if stage == "testing" {
+		path = "../.env"
 	}
+	if stage != "testing" {
+		path = ".env"
+	}
+
+	// uncomment this for local development (without container)
+	helpers.LoadEnv(path)
 
 	dbURI := fmt.Sprintf(
 		"postgres://%s:%s@%s:%d/%s?sslmode=disable",
 		helpers.GetAsString("DB_USER", "postgres"),
 		helpers.GetAsString("DB_PASSWORD", "mysecretpassword"),
-		helpers.GetAsString("DB_HOST", "postgres"),
-		helpers.GetAsInt("DB_PORT", 5432),
+		helpers.GetAsString("DB_HOST", "localhost"),
+		helpers.GetAsInt("DB_PORT", 5433),
 		helpers.GetAsString("DB_NAME", "postgres"),
 	)
 
 	db, err = gorm.Open(postgres.Open(dbURI), &gorm.Config{})
-
 	if err != nil {
 		log.Fatal(err.Error())
 	}
 
-	db.Debug().AutoMigrate(models.User{}, models.Photo{})
+	if stage == "development" ||
+		stage == "production" {
+		db.Debug().AutoMigrate(models.User{}, models.Photo{})
+	}
 }
 
 func GetDB() *gorm.DB {

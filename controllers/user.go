@@ -24,8 +24,8 @@ func (h *userController) Register(c *gin.Context) {
 	c.ShouldBindJSON(&user)
 
 	user.Password = helpers.HashPassword(user.Password)
-	err := h.db.Debug().Create(&user).Error
 
+	err := h.db.Debug().Create(&user).Error
 	if err != nil {
 		errors := helpers.FormatValidationError(err)
 		errorMessage := gin.H{
@@ -46,8 +46,8 @@ func (h *userController) Login(c *gin.Context) {
 	var user models.User
 
 	c.ShouldBindJSON(&user)
-	Inputpassword := user.Password
 
+	Inputpassword := user.Password
 	err := h.db.Debug().Where("email = ?", user.Email).Find(&user).Error
 	if err != nil {
 		response := helpers.ApiResponse(http.StatusUnprocessableEntity, "error", nil, "Login Failed")

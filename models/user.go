@@ -9,9 +9,9 @@ import (
 
 type User struct {
 	ID        int        `gorm:"primaryKey" json:"id"`
-	Username  string     `gorm:"not null" json:"username" valid:"required~Username is required"`
-	Email     string     `gorm:"not null;uniqueIndex" json:"email" valid:"required~Email is required,email~Invalid Email"`
-	Password  string     `gorm:"not null" json:"password" valid:"required~Password is required,minstringlength(6)~Password minimum is 6 characters"`
+	Username  string     `gorm:"not null" json:"username" form:"username" valid:"required~Username is required"`
+	Email     string     `gorm:"not null;uniqueIndex" json:"email" form:"email" valid:"required~Email is required,email~Invalid Email"`
+	Password  string     `gorm:"not null" json:"password" form:"password" valid:"required~Password is required,minstringlength(6)~Password minimum is 6 characters"`
 	Photo     []Photo    `gorm:"constraint:OnUpdate:CASCADE,OnDelete:CASCADE;" json:",omitempty"`
 	CreatedAt *time.Time `json:",omitempty"`
 	UpdatedAt *time.Time `json:",omitempty"`

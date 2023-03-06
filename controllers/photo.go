@@ -1,7 +1,6 @@
 package controllers
 
 import (
-	"fmt"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -149,7 +148,6 @@ func (h *photoController) Update(c *gin.Context) {
 		return
 	}
 
-	fmt.Println("Update foto")
 	h.UpdatePhoto(input, &userPhoto, path)
 
 	data := photoRes.FormatPhoto(&userPhoto, "regular")
@@ -162,9 +160,7 @@ func (h *photoController) UpdatePhoto(oldPhoto models.Photo, newPhoto *models.Ph
 	newPhoto.Caption = oldPhoto.Caption
 	newPhoto.PhotoURL = path
 
-	fmt.Println("Save foto")
 	err := h.db.Save(&newPhoto).Error
-	fmt.Println(newPhoto)
 	if err != nil {
 		return err
 	}
