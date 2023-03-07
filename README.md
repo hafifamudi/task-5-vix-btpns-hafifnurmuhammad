@@ -4,7 +4,7 @@
 <br />
 
 ```
-Project ini masih dalam tahap Development sampai dengan tanggal 5 Maret 2023
+Harap di maklumi yaa, jika dokumentasi nya pakai bahasa Gado-gado (Indo x English) :D
 ```
 
 ## About the API
@@ -33,6 +33,33 @@ Project ini masih dalam tahap Development sampai dengan tanggal 5 Maret 2023
 That's it, Restful API nya sudah bisa di testing sekarang, Enjoy :)
 
 <br />
+
+## How to Use 
+<p style="margin-left:10px">
+    There are several stage in this <i>Restful API</i> (Development, Testing & Production)
+</p>
+
+- Development 
+    - to running development stage you can use this configurations
+        - change DB_HOST to localhost
+        - change DB_PORT to 5433
+        - change STAGE to development
+        - run `make postgresup` in your terminal
+        - run `go run main.go` in your terminal
+- Testing
+    - to running testing stage you can use this configurations
+        - change DB_HOST to localhost
+        - change DB_PORT to 5433
+        - change STAGE to testing
+        - run `make test` in your terminal
+- Production
+    - to running production (with container) stage you can use this configurations
+        - you dont need to configure .env files, because for demonstration purpose, Iam already Hard-Code the ENV Variable in Dockerfile
+        - run `make build` in your terminal
+        - run `make run` in your terminal
+
+`If container or image already created before, you can use make delete_container or make delete_image command in Makefile`
+
 
 ## System Design
 <br />

@@ -20,7 +20,7 @@ func TestLogin(t *testing.T) {
 	rand.Seed(time.Now().UnixNano())
 	randNum := rand.Int()
 
-	database.MigrateDB()
+	database.InitDB()
 
 	api := "/api/v1"
 	r := router.RouteInit()

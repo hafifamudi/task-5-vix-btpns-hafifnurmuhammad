@@ -15,7 +15,7 @@ var (
 	err error
 )
 
-func MigrateDB() {
+func InitDB() {
 	var path string
 	stage := helpers.GetAsString("STAGE", "development")
 
@@ -26,7 +26,7 @@ func MigrateDB() {
 		path = ".env"
 	}
 
-	// uncomment this for local development (without container)
+	// comment this line for production ready app (with container)
 	helpers.LoadEnv(path)
 
 	dbURI := fmt.Sprintf(
@@ -42,6 +42,10 @@ func MigrateDB() {
 	if err != nil {
 		log.Fatal(err.Error())
 	}
+}
+
+func MigrateDB() {
+	stage := helpers.GetAsString("STAGE", "development")
 
 	if stage == "development" ||
 		stage == "production" {

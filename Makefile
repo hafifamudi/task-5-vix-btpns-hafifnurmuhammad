@@ -55,7 +55,7 @@ go_app:
 run: go_app postgresup
 
 # USEFUL TARGET FOR DESTROY or DELETE ALL RUNNING or CACHE CONTAINER
-IMAGE_NAME ?= ffb7c31b40f4 # insert your custome image name or ID_
+IMAGE_NAME ?= go-rest-api:0.0.1 # insert your custome image name or ID_
 
 delete_container:
 	docker rm -f $(CON_NAME)

@@ -2,13 +2,12 @@ package helpers
 
 import (
 	"errors"
-	"os"
 
 	"github.com/dgrijalva/jwt-go"
 )
 
 func GenerateToken(userID int) (string, error) {
-	var SECRET_KEY = []byte(os.Getenv("SECRET_KEY"))
+	var SECRET_KEY = []byte(GetAsString("STAGE", "kuncirahasia"))
 
 	//set payload
 	claim := jwt.MapClaims{}
@@ -26,7 +25,7 @@ func GenerateToken(userID int) (string, error) {
 }
 
 func ValidateToken(encodedToken string) (*jwt.Token, error) {
-	var SECRET_KEY = []byte(os.Getenv("SECRET_KEY"))
+	var SECRET_KEY = []byte(GetAsString("STAGE", "kuncirahasia"))
 
 	token, err := jwt.Parse(encodedToken, func(token *jwt.Token) (interface{}, error) {
 		_, ok := token.Method.(*jwt.SigningMethodHMAC)

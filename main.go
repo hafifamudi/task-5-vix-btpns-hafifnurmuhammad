@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+	database.InitDB()
 	database.MigrateDB()
 	r := router.RouteInit()
 	r.Run(":8080")
