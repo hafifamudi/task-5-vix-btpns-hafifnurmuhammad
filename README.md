@@ -90,7 +90,7 @@ Request :
 
 Request :
 - Method : POST
-- Endpoint : `/api/v1/register`
+- Endpoint : `/api/v1/users/register`
 - Header :
     - Content-Type : application/json
     - Accept : application/json
@@ -125,7 +125,7 @@ Response :
 Request :
 
 - Method : POST
-- Endpoint : `/api/v1/login`
+- Endpoint : `/api/v1/users/login`
 - Header : 
     - Accept: application/json
 - Body:
